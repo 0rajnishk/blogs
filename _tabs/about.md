@@ -15,7 +15,7 @@ order: 4
 
 
 
-<div style="display: flex; justify-content: space-between; padding: 20px; background-color: #3331; color: #fff;" >
+<div style="display: flex; justify-content: space-between; padding: 20px; background-color: #343a40; color: #fff;" >
     <h3> Focused and enthusiastic developer with a keen interest in software development and artificial intelligence. I am a passionate individual who thrives to build and apply algorithms to solve real-world industry problems. I am a quick learner and a team player who is always ready to take on new challenges.
     </h3>
 </div>
@@ -24,14 +24,14 @@ order: 4
 
 
 # INTERESTS
-<div style="display: flex; justify-content: space-around; align-items: center; padding: 20px; background-color: #333; color: #fff; flex-wrap: wrap; text-align: center;">
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Software&nbsp;Development</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Machine&nbsp;Learning</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Computer&nbsp;Vision</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Natural&nbsp;Language&nbsp;Processing</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Software&nbsp;Engineering</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Visualization</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Algorithms</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Image&nbsp;Processing</p>
-    <p style="flex: 1; background-color:#331D2C; padding: 5px; margin: 3px;">Data&nbsp;Science</p>
+<div style="display: flex; justify-content: space-around; align-items: center; padding: 20px; background-color: #343a40; color: #fff; flex-wrap: wrap; text-align: center;">
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Software&nbsp;Development</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Machine&nbsp;Learning</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Computer&nbsp;Vision</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Natural&nbsp;Language&nbsp;Processing</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Software&nbsp;Engineering</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Visualization</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Algorithms</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Image&nbsp;Processing</p>
+    <p style="flex: 1; background-color:#09203a; padding: 5px; margin: 3px;">Data&nbsp;Science</p>
 </div>
