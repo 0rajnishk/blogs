@@ -181,6 +181,17 @@ git remote -v
 git remote add origin [url]
 ```
 
+- View remote repository
+```bash
+git remote show origin 
+```
+
+
+- Remove remote repository
+```bash
+git remote rm origin
+```
+
 - Changes the URL of an existing remote repository
 ```bash
 git remote set-url origin [url]
