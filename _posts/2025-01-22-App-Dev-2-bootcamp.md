@@ -1,3 +1,9 @@
+---
+title: "Bootcamp"
+date: "2025-01-22 00:00:00"
+categories: [Development]
+tags: [bootcamp, vue, flask]
+---
 
 # Setting Up Things for the Project
 
@@ -118,6 +124,9 @@ Go to the root folder of your project:
 cd /path/to/your/project
 ```
 
+
+
+
 Create the Vue frontend project using Vite:
 
 ```bash
@@ -136,6 +145,14 @@ mkdir backend
 cd backend
 python -m venv env
 ```
+
+
+Activate virtual environment:
+
+```bash
+source .env/bin/activate
+```
+
 
 ## Push Your New Changes to the Remote Origin
 
