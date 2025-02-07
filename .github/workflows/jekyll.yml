@@ -12,11 +12,11 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Let GitHub manage version transitions
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,9 +28,10 @@ jobs:
           bundler-cache: true
           cache-version: 0
 
-      - name: Setup GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v3  # Compatible version
+      - name: Verify build directory
+        run: |
+          mkdir -p _site
+          ls -la _site
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -38,9 +39,9 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # Correct version
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site/'  # Explicit path declaration
+          path: '_site/'
 
   deploy:
     environment:
@@ -51,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # Stable deployment version
+        uses: actions/deploy-pages@v4
