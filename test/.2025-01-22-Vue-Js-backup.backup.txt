@@ -1,0 +1,2316 @@
+---
+title: "Vue.js Tutorial"
+date: "2025-02-07 00:00:00"
+categories: [Development ]
+tags: [vue]
+---
+
+
+# Vue.js Tutorial 🚀
+
+Welcome to the **Vue.js Tutorial** using the **Chirpy theme** for Jekyll! This guide covers Vue.js step-by-step, starting from basics to advanced concepts. Click on any topic to jump to that section.
+
+## 📚 Table of Contents
+
+<!-- ### **Preface**
+
+- [About the Tutorial](#about-the-tutorial)
+- [Prerequisites](#prerequisites)
+- [Copyright & Disclaimer](#copyright-and-disclaimer) -->
+
+### **1⃣ Introduction to Vue.js**
+
+- [What is Vue.js?](#what-is-vuejs)
+- [Features of Vue.js](#features-of-vuejs)
+- [Comparison with Other Frameworks](#comparison-with-other-frameworks)
+  - [Vue.js vs React](#vuejs-vs-react)
+  - [Vue.js vs Angular](#vuejs-vs-angular)
+  - [Vue.js vs Knockout.js](#vuejs-vs-knockoutjs)
+  - [Vue.js vs Polymer](#vuejs-vs-polymer)
+
+### **2⃣ Setting Up Vue.js with Vite**
+
+- [What is Vite?](#what-is-vite)
+- [Why use Vite for Vue.js?](#why-use-vite-for-vuejs)
+- [Installing Vite and Creating a Vue Project](#installing-vite-and-creating-a-vue-project)
+- [Project Structure Overview](#project-structure-overview)
+- [Running the Development Server](#running-the-development-server)
+
+### **3⃣ Vue.js Fundamentals (Options API)**
+
+- [Introduction to the Options API](#introduction-to-the-options-api)
+- [Understanding Vue Instances (](#understanding-vue-instances-new-vue)[`new Vue()`](#understanding-vue-instances-new-vue)[)](#understanding-vue-instances-new-vue)
+- [The Vue Lifecycle Hooks](#the-vue-lifecycle-hooks)
+
+### **4⃣ Template Syntax in Vue.js**
+
+- [Interpolation (](#interpolation)[`\{\{ \}\}`](#interpolation)[)](#interpolation)
+- [Directives (](#directives)[`v-if`](#directives)[, ](#directives)[`v-show`](#directives)[, ](#directives)[`v-for`](#directives)[, ](#directives)[`v-bind`](#directives)[, ](#directives)[`v-model`](#directives)[)](#directives)
+- [Event Handling (](#event-handling)[`v-on`](#event-handling)[)](#event-handling)
+- [Attribute Binding (](#attribute-binding)[`v-bind`](#attribute-binding)[)](#attribute-binding)
+
+### **5⃣ Vue Components**
+
+- [Creating and Registering Components](#creating-and-registering-components)
+- [Props and Component Communication](#props-and-component-communication)
+- [Dynamic Components](#dynamic-components)
+- [Slots in Vue.js](#slots-in-vuejs)
+- [Parent-Child Communication](#parent-child-communication)
+
+### **6⃣ Computed Properties & Watchers**
+
+- [Introduction to Computed Properties](#introduction-to-computed-properties)
+- [Getters and Setters in Computed Properties](#getters-and-setters-in-computed-properties)
+- [The Watch Property for Reactive Changes](#the-watch-property-for-reactive-changes)
+
+### **7⃣ Data Binding in Vue.js**
+
+- [One-Way vs Two-Way Data Binding](#one-way-vs-two-way-data-binding)
+- [Binding HTML Classes & Styles](#binding-html-classes-and-styles)
+- [Handling Forms with ](#handling-forms-with-v-model)[`v-model`](#handling-forms-with-v-model)
+
+### **8⃣ Vue Directives**
+- [Conditional Rendering (`v-if`, `v-else`, `v-show`)](#conditional-rendering-v-if-v-show)
+- [List Rendering (v-for)](#list-rendering-v-for)
+- [Event Handling with v-on ](#event-handling-v-on)
+- [Two-Way Binding with V-model](#two-way-data-binding-v-model)
+
+### **9⃣ Vue Router: Navigation & Routing**
+
+- [Setting Up Vue Router](#1-setting-up-vue-router)
+- [Defining Routes and Route Parameters](#2-defining-routes-and-route-parameters)
+- [Navigation Guards](#3-navigation-guards)
+
+### **10 State Management in Vue.js**
+
+- [Introduction to Vuex](#1-introduction-to-vuex)
+- [Managing State with Vuex](#2-managing-state-with-vuex)
+- [Mutations, Actions, and Getters](#3-mutations-actions-and-getters)
+
+### **11 Vue.js and API Communication**
+
+- [Fetching Data using Axios](#1-fetching-data-using-axios)
+- [Handling API Calls and Responses](#2-handling-api-calls-and-responses)
+- [Managing Loading States and Errors](#3-managing-loading-states-and-errors)
+
+### **12 Deploying a Vue App**
+
+- [Building for Production](#1-building-for-production)
+- [Deploying to Netlify/Vercel/GitHub Pages](#2-deploying-to-netlify-vercel-github-pages)
+
+
+🚀 Happy Coding! 🎉
+
+---
+
+## **1. Introduction to Vue.js**
+
+### **What is Vue.js?**
+Vue.js is a **progressive JavaScript framework** used for building **user interfaces (UIs) and single-page applications (SPAs)**. It is designed to be **incrementally adoptable**, meaning you can use it for small components or scale it to large, complex applications.
+
+Vue.js was created by **Evan You** and first released in **2014**. Since then, it has gained popularity due to its **ease of use, flexibility, and performance**.
+
+### **Key Highlights of Vue.js:**
+- Uses **Declarative Rendering** for efficient UI updates.
+- Offers a **reactive and composable** data-binding system.
+- Supports **component-based architecture** for modular development.
+- Provides **built-in directives** for seamless DOM manipulation.
+- Lightweight with a small footprint (~20 KB gzipped).
+
+---
+
+## **Features of Vue.js**
+Vue.js comes with a range of powerful features that make development **fast and efficient**:
+
+| Feature | Description |
+|---------|------------|
+| **Reactive Data Binding** | Automatically updates the DOM when data changes. |
+| **Virtual DOM** | Uses an optimized Virtual DOM for fast UI updates. |
+| **Component-Based Architecture** | Helps in building reusable UI components. |
+| **Directives** | Built-in directives like `v-if`, `v-for`, `v-model` simplify UI manipulation. |
+| **Computed Properties & Watchers** | Efficiently handle dependent data calculations and track changes. |
+| **Vue Router** | Enables seamless navigation in Single-Page Applications (SPAs). |
+| **Vuex (State Management)** | Centralized state management for large-scale applications. |
+| **Transitions & Animations** | Provides built-in support for animations and transitions. |
+| **Lightweight & Fast** | Small file size and optimized performance. |
+| **Integrates Easily** | Works well with other libraries and existing projects. |
+
+---
+
+### **Comparison with Other Frameworks**
+Vue.js is often compared with other frontend frameworks like **React, Angular, Knockout.js, and Polymer**. Below is a detailed comparison:
+
+#### **Vue.js vs React**
+<div>
+  <table>
+    <tr><th>Feature</th><th>Vue.js</th><th>React</th></tr>
+    <tr><td>Type</td><td>Framework</td><td>Library</td></tr>
+    <tr><td>Syntax</td><td>Uses HTML-based templates</td><td>Uses JSX (JavaScript XML)</td></tr>
+    <tr><td>State Management</td><td>Vuex (Official)</td><td>Redux, Context API, Recoil, Zustand</td></tr>
+    <tr><td>Two-Way Binding</td><td>Supported with `v-model`</td><td>Requires manual handling</td></tr>
+    <tr><td>Learning Curve</td><td>Easier to learn</td><td>Slightly steeper due to JSX and state management</td></tr>
+    <tr><td>Performance</td><td>Fast with Virtual DOM</td><td>Fast with Virtual DOM</td></tr>
+    <tr><td>Community Support</td><td>Growing, but smaller than React</td><td>Large and mature community</td></tr>
+  </table>
+</div>
+
+**Verdict:** Vue.js is easier for beginners due to its **HTML-like templates**, while React provides **more flexibility** with JavaScript-driven development.
+
+---
+
+#### **Vue.js vs Angular**
+<div>
+  <table>
+    <tr><th>Feature</th><th>Vue.js</th><th>Angular</th></tr>
+    <tr><td>Type</td><td>Progressive Framework</td><td>Full-fledged Framework</td></tr>
+    <tr><td>Language</td><td>JavaScript</td><td>TypeScript</td></tr>
+    <tr><td>Architecture</td><td>Component-based</td><td>Component-based with MVC pattern</td></tr>
+    <tr><td>Size</td><td>~20KB (small)</td><td>~500KB (large)</td></tr>
+    <tr><td>Performance</td><td>Faster due to Virtual DOM</td><td>Slightly slower due to real DOM manipulations</td></tr>
+    <tr><td>Learning Curve</td><td>Easier</td><td>Steep, due to TypeScript and complex concepts</td></tr>
+    <tr><td>Data Binding</td><td>Two-way with `v-model`</td><td>Two-way with `ngModel`</td></tr>
+    <tr><td>Usage</td><td>Flexible for small & large projects</td><td>Best for large enterprise applications</td></tr>
+  </table>
+</div>
+
+**Verdict:** Vue.js is **lighter and easier** to learn, while Angular is **feature-rich and structured**, making it suitable for **enterprise applications**.
+
+---
+
+#### **Vue.js vs Knockout.js**
+<div>
+  <table>
+    <tr><th>Feature</th><th>Vue.js</th><th>Knockout.js</th></tr>
+    <tr><td>Type</td><td>Modern UI Framework</td><td>MVVM-based Library</td></tr>
+    <tr><td>Reactive System</td><td>Built-in reactivity</td><td>Uses observables for reactivity</td></tr>
+    <tr><td>Component-Based</td><td>Yes</td><td>No</td></tr>
+    <tr><td>Performance</td><td>Fast with Virtual DOM</td><td>Slower compared to modern frameworks</td></tr>
+    <tr><td>Popularity</td><td>Growing rapidly</td><td>Declining usage</td></tr>
+  </table>
+</div>
+
+**Verdict:** Knockout.js is an **older library** primarily used for **legacy applications**, while Vue.js is a **modern alternative** with better community support.
+
+---
+
+#### **Vue.js vs Polymer**
+<div>
+  <table>
+    <tr><th>Feature</th><th>Vue.js</th><th>Polymer</th></tr>
+    <tr><td>Type</td><td>JavaScript Framework</td><td>Library for Web Components</td></tr>
+    <tr><td>Approach</td><td>Component-based UI</td><td>Web Components (custom elements)</td></tr>
+    <tr><td>Performance</td><td>Faster Virtual DOM</td><td>Uses real DOM, can be slower</td></tr>
+    <tr><td>Adoption</td><td>Widely used</td><td>Niche usage, mainly for Web Components</td></tr>
+  </table>
+</div>
+
+**Verdict:** Vue.js is **more practical** for building modern web applications, while Polymer is **better suited for custom Web Components**.
+
+---
+
+
+
+### **Conclusion**
+Vue.js is a **powerful, lightweight, and flexible** JavaScript framework that combines the **best features of React and Angular**. It is an **excellent choice for beginners and experienced developers** looking to build **scalable, high-performance web applications**.
+
+---
+This section provides a **clear introduction** to Vue.js and how it compares to other frameworks. Let me know if you need modifications or additional details! 🚀
+
+
+
+
+## **2. Setting Up Vue.js with Vite**
+
+### **What is Vite?**
+Vite (pronounced "veet") is a **next-generation build tool** that provides **fast and optimized development environments** for modern web applications. It was created by **Evan You**, the creator of Vue.js.
+
+#### **Key Features of Vite:**
+- **Lightning-fast Hot Module Replacement (HMR)** – Instant updates without reloading the page.
+- **On-Demand Compilation** – Compiles only the necessary files, improving speed.
+- **Optimized Build** – Uses Rollup for production-ready builds.
+- **TypeScript & JSX Support** – Built-in support for TypeScript, JSX, and CSS Preprocessors.
+- **ES Module-based Development** – No need for bundling during development.
+
+---
+
+### **Why Use Vite for Vue.js?**
+Vite is the **recommended way** to set up Vue 3 projects because it overcomes the **performance issues** of traditional build tools like Webpack.
+
+| Feature | Vite | Webpack |
+|---------|------|---------|
+| **Startup Speed** | Instant (No bundling) | Slow (Bundling required) |
+| **Hot Module Replacement (HMR)** | Fast | Slow |
+| **Build Performance** | Optimized with Rollup | Can be slow for large projects |
+| **Configuration** | Minimal | Complex |
+| **ES Module Support** | Yes | No |
+
+**Verdict:** Vite provides a **superior development experience** with **faster updates, fewer configurations, and better performance**.
+
+---
+
+### **Installing Vite and Creating a Vue Project**
+Setting up a Vue.js project with Vite is **simple and quick**. Follow these steps:
+
+#### **Step 1: Install Node.js**
+Ensure you have **Node.js (v16 or later)** installed. You can check your version using:
+
+```sh
+node -v
+```
+
+If you don't have Node.js, download it from [nodejs.org](https://nodejs.org/).
+
+---
+
+#### **Step 2: Create a Vue Project with Vite**
+Run the following command to create a new Vue.js project using Vite:
+
+```sh
+npm create vite@latest my-vue-app
+```
+or using Yarn:
+```sh
+yarn create vite@latest my-vue-app
+```
+
+You'll be prompted to select a framework. Choose **Vue** and then select **JavaScript** or **TypeScript**.
+
+```sh
+✔ Select a framework: › Vue
+✔ Select a variant: › JavaScript / TypeScript
+```
+
+This will generate a new Vue.js project in the `my-vue-app` directory.
+
+---
+
+#### **Step 3: Install Dependencies**
+Navigate to your project folder and install dependencies:
+
+```sh
+cd my-vue-app
+npm install
+```
+
+or using Yarn:
+
+```sh
+cd my-vue-app
+yarn install
+```
+
+---
+
+### **Project Structure Overview**
+Once your project is created, the folder structure will look like this:
+
+```
+my-vue-app/
+│── node_modules/         # Installed dependencies
+│── public/               # Static assets (favicon, images, etc.)
+│── src/                  # Main application code
+│   ├── assets/           # Static assets (CSS, images)
+│   ├── components/       # Vue components
+│   ├── App.vue           # Root component
+│   ├── main.js           # Entry point
+│── index.html            # Main HTML file
+│── package.json          # Project configuration
+│── vite.config.js        # Vite configuration
+│── README.md             # Project documentation
+```
+
+#### **Key Files:**
+- **`index.html`** – Main HTML entry point.
+- **`src/main.js`** – Application entry file.
+- **`src/App.vue`** – Root component.
+- **`vite.config.js`** – Vite configuration file.
+
+---
+
+### **Running the Development Server**
+Once everything is set up, start the development server:
+
+```sh
+npm run dev
+```
+or using Yarn:
+```sh
+yarn dev
+```
+
+This will start a **local development server** with **hot module replacement (HMR)**. You’ll see output like:
+
+```
+VITE v4.0.0  ready in 100ms
+➜  Local: http://localhost:5173/
+```
+
+Open **http://localhost:5173/** in your browser to see your Vue app running.
+
+---
+
+### **Conclusion**
+Setting up Vue.js with Vite is **fast and efficient**. Vite provides an optimized development experience with **instant startup times, lightning-fast HMR, and minimal configurations**. Now that your project is up and running, you can start building Vue.js applications with ease! 🚀
+
+---
+
+
+## **3. Vue.js Fundamentals (Options API)**
+
+### **Introduction to the Options API**
+The **Options API** is the traditional way of writing Vue components, where all the logic is organized using **different option properties** inside a Vue instance. This approach is useful for developers transitioning from Vue 2 and is widely used in projects that prioritize **readability and maintainability**.
+
+#### **Key Features of the Options API:**
+- Uses **object-based configuration**.
+- Organizes logic into **specific sections** (e.g., `data`, `methods`, `computed`, `watch`).
+- Suitable for **small to medium-sized applications**.
+- More **structured and easy to understand**.
+
+#### **Basic Example of the Options API**
+```vue
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello, Vue!",
+    };
+  },
+  methods: {
+    greet() {
+      return `Welcome! ${this.message}`;
+    },
+  },
+};
+</script>
+
+<template>
+  <div>
+    <h1>{{ message }}</h1>
+    <button @click="greet">Click Me</button>
+  </div>
+</template>
+```
+
+---
+
+### **Understanding Vue Instances (`new Vue()`)**
+In Vue.js, everything starts with **creating a Vue instance**, which is responsible for **data management, rendering, and event handling**.
+
+#### **Creating a Vue Instance**
+Before Vue 3 introduced the Composition API, Vue 2 relied on **creating an instance using `new Vue()`**:
+
+```js
+new Vue({
+  el: "#app",
+  data: {
+    message: "Hello Vue!",
+  },
+});
+```
+- **`el`**: The element where Vue will mount.
+- **`data`**: The reactive data object.
+
+#### **Vue 3 Equivalent**
+In Vue 3, we use `createApp()` instead of `new Vue()`:
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+
+createApp(App).mount("#app");
+```
+
+---
+
+### **The Vue Lifecycle Hooks**
+Vue provides **lifecycle hooks** that allow you to execute logic at different stages of a component's lifecycle.
+
+<table>
+  <thead>
+    <tr>
+      <th>Lifecycle Hook</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>beforeCreate()</code></td>
+      <td>Called before data observation and event setup.</td>
+    </tr>
+    <tr>
+      <td><code>created()</code></td>
+      <td>Called after data observation and events are initialized.</td>
+    </tr>
+    <tr>
+      <td><code>beforeMount()</code></td>
+      <td>Called before the component is added to the DOM.</td>
+    </tr>
+    <tr>
+      <td><code>mounted()</code></td>
+      <td>Called when the component is inserted into the DOM.</td>
+    </tr>
+    <tr>
+      <td><code>beforeUpdate()</code></td>
+      <td>Called before re-rendering when reactive data changes.</td>
+    </tr>
+    <tr>
+      <td><code>updated()</code></td>
+      <td>Called after the component re-renders due to data changes.</td>
+    </tr>
+    <tr>
+      <td><code>beforeUnmount()</code></td>
+      <td>Called before a component is destroyed.</td>
+    </tr>
+    <tr>
+      <td><code>unmounted()</code></td>
+      <td>Called after the component is removed from the DOM.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+#### **Example: Using Lifecycle Hooks**
+```vue
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
+  beforeCreate() {
+    console.log("beforeCreate: Data is not yet reactive.");
+  },
+  created() {
+    console.log("created: Data is now reactive.");
+  },
+  beforeMount() {
+    console.log("beforeMount: Template is compiled.");
+  },
+  mounted() {
+    console.log("mounted: Component is now in the DOM.");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate: Data is changing.");
+  },
+  updated() {
+    console.log("updated: The DOM has been updated.");
+  },
+  beforeUnmount() {
+    console.log("beforeUnmount: Component is about to be destroyed.");
+  },
+  unmounted() {
+    console.log("unmounted: Component is removed from the DOM.");
+  },
+};
+</script>
+
+<template>
+  <div>
+    <h1>{{ message}}</h1>
+    <button @click="message = 'Vue Lifecycle Updated!'">Update Message</button>
+  </div>
+</template>
+```
+
+---
+
+### **Conclusion**
+The **Options API** provides a structured way to manage Vue applications. Understanding **Vue instances and lifecycle hooks** helps in controlling how components behave during their creation, updating, and destruction. Mastering these concepts is essential for building robust Vue applications! 🚀
+
+---
+
+
+
+Here's the content for **4. Template Syntax in Vue.js**:
+
+---
+
+## **4. Template Syntax in Vue.js**
+
+Vue.js uses an HTML-based **template syntax** that allows us to declaratively bind the rendered DOM to the underlying component’s **data**. This template syntax is intuitive and provides powerful **directives** for dynamic rendering.
+
+---
+
+### **Interpolation (`\{\{ \}\}`)**
+Interpolation is used to **dynamically insert data** into HTML templates using **double curly braces (`\{\{ \}\}`)**.
+
+#### **Example of Interpolation:**
+```vue
+<template>
+  <h1>{{ message }}</h1>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello, Vue.js!",
+    };
+  },
+};
+</script>
+```
+📌 **How it works:**
+- The `{{ message }}` placeholder is replaced by `"Hello, Vue.js!"`.
+- Vue automatically updates the text whenever `message` changes.
+
+✅ **Can we use JavaScript expressions inside `\{\{ \}\}`?**  
+Yes! You can use simple expressions:
+
+```vue
+<template>
+  <h1>{{ message.toUpperCase() }}</h1>
+  <p>2 + 2 = {{ 2 + 2 }}</p>
+</template>
+```
+
+❌ **Cannot use statements like `if` or `for` inside `\{\{ \}\}`.**
+
+---
+
+### **Directives (`v-if`, `v-show`, `v-for`, `v-bind`, `v-model`)**
+Vue **directives** are special attributes prefixed with `v-`, which allow us to **manipulate the DOM dynamically**.
+
+#### **Conditional Rendering \(`v-if`, `v-show`\)**
+`v-if` and `v-show` are used for **conditionally displaying elements**.
+
+##### **Using `v-if`**
+`v-if` completely **removes** or **adds** elements based on a condition.
+```vue
+<template>
+  <p v-if="isVisible">This text is visible</p>
+  <button @click="isVisible = !isVisible">Toggle Visibility</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isVisible: true,
+    };
+  },
+};
+</script>
+```
+📌 **`v-if` removes the element from the DOM when false.**
+
+##### **Using `v-show`**
+`v-show` **toggles the CSS `display` property** instead of removing elements.
+
+```vue
+<p v-show="isVisible">This text is visible</p>
+```
+✅ **When to use?**
+- `v-if` → When elements should be completely added/removed.
+- `v-show` → When frequent toggling is needed.
+
+---
+
+#### **List Rendering (`v-for`)**
+`v-for` is used to **render lists** dynamically.
+
+```vue
+<template>
+  <ul>
+    <li v-for="(item, index) in items" :key="index">
+      {{ index + 1 }}. \{\{ item \}\}
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      items: ["Vue", "React", "Angular"],
+    };
+  },
+};
+</script>
+```
+📌 **Important:**
+- Always use a **`key`** attribute for better performance.
+- `item` represents the **current value**, and `index` is the **current position**.
+
+---
+
+#### **Attribute Binding (`v-bind`)**
+`v-bind` dynamically **binds attributes** to elements.
+
+##### **Example: Binding a `src` attribute**
+```vue
+<template>
+  <img v-bind:src="imageUrl" alt="Vue Logo" />
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      imageUrl: "https://vuejs.org/images/logo.png",
+    };
+  },
+};
+</script>
+```
+📌 **Shortcut:** You can omit `v-bind:` and just use `:`  
+```vue
+<img :src="imageUrl" alt="Vue Logo" />
+```
+
+---
+
+#### **Two-Way Data Binding (`v-model`)**
+`v-model` creates a **two-way binding** between a form input and the component data.
+
+##### **Example: Using `v-model` with Input Fields**
+```vue
+<template>
+  <input v-model="name" placeholder="Enter your name" />
+  <p>Hello, {{ name }}!</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+    };
+  },
+};
+</script>
+```
+📌 `v-model` automatically updates `name` whenever the user types.
+
+---
+
+### **Event Handling (`v-on`)**
+Vue provides `v-on` to **listen for DOM events** and trigger methods.
+
+##### **Example: Handling Click Events**
+```vue
+<template>
+  <button v-on:click="greet">Click Me</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    greet() {
+      alert("Hello from Vue!");
+    },
+  },
+};
+</script>
+```
+📌 **Shortcut:**  
+`v-on` can be shortened to `@`:  
+```vue
+<button @click="greet">Click Me</button>
+```
+
+---
+
+### **Conclusion**
+Vue's **template syntax** provides powerful tools like **interpolation, directives, and event handling**, making dynamic UI development easy. **Understanding these features is crucial for mastering Vue.js!** 🚀
+
+---
+
+## **5. Vue Components**
+
+Vue components are the **building blocks** of a Vue application. They allow you to create **reusable, modular UI elements**, making your application **scalable and maintainable**.
+
+---
+
+### **Creating and Registering Components**
+There are two ways to create and register components in Vue.js:
+1. **Global Registration** – The component is available throughout the application.
+2. **Local Registration** – The component is available only within the parent component.
+
+---
+
+#### **1. Global Registration**
+A globally registered component can be used anywhere in the app.
+
+##### **Example: Registering a Global Component**
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+
+const app = createApp(App);
+
+app.component("HelloComponent", {
+  template: `<h1>Hello from Global Component!</h1>`,
+});
+
+app.mount("#app");
+```
+Now you can use `<HelloComponent />` anywhere in the templates.
+
+---
+
+#### **2. Local Registration**
+A locally registered component is **scoped** to a specific component.
+
+##### **Example: Registering a Local Component**
+```vue
+<!-- ParentComponent.vue -->
+<template>
+  <ChildComponent />
+</template>
+
+<script>
+import ChildComponent from "./ChildComponent.vue";
+
+export default {
+  components: {
+    ChildComponent,
+  },
+};
+</script>
+```
+---
+
+### **Props and Component Communication**
+Props allow **data passing from a parent component to a child component**.
+
+#### **Using Props**
+Props are **custom attributes** that a component can accept.
+
+##### **Example: Passing Props**
+```vue
+<!-- ParentComponent.vue -->
+<template>
+  <ChildComponent message="Hello from Parent!" />
+</template>
+
+<script>
+import ChildComponent from "./ChildComponent.vue";
+
+export default {
+  components: {
+    ChildComponent,
+  },
+};
+</script>
+```
+
+```vue
+<!-- ChildComponent.vue -->
+<template>
+  <p>{{ message }}</p>
+</template>
+
+<script>
+export default {
+  props: ["message"],
+};
+</script>
+```
+📌 **Key Notes:**
+- Props should be **read-only** inside the child component.
+- You can validate props with **type checking**:
+  ```vue
+  props: {
+    message: {
+      type: String,
+      required: true,
+    },
+  }
+  ```
+
+---
+
+### **Dynamic Components**
+Dynamic components allow **swapping components dynamically** using the `component` tag.
+
+##### **Example: Switching Components Dynamically**
+```vue
+<template>
+  <button @click="currentComponent = 'ComponentA'">Show A</button>
+  <button @click="currentComponent = 'ComponentB'">Show B</button>
+
+  <component :is="currentComponent"></component>
+</template>
+
+<script>
+import ComponentA from "./ComponentA.vue";
+import ComponentB from "./ComponentB.vue";
+
+export default {
+  data() {
+    return {
+      currentComponent: "ComponentA",
+    };
+  },
+  components: {
+    ComponentA,
+    ComponentB,
+  },
+};
+</script>
+```
+📌 `:is="currentComponent"` dynamically renders the selected component.
+
+---
+
+### **Slots in Vue.js**
+Slots allow **content projection**, meaning a parent can pass content inside a child component.
+
+#### **1. Default Slot**
+A **default slot** allows passing content into the child component.
+
+##### **Example: Using Default Slot**
+```vue
+<!-- ParentComponent.vue -->
+<ChildComponent>
+  <p>This is content from the parent!</p>
+</ChildComponent>
+```
+```vue
+<!-- ChildComponent.vue -->
+<template>
+  <div>
+    <h3>Child Component</h3>
+    <slot></slot> <!-- This is where content will be injected -->
+  </div>
+</template>
+```
+
+---
+
+#### **2. Named Slots**
+Named slots allow passing **multiple sections** of content.
+
+##### **Example: Using Named Slots**
+```vue
+<!-- ParentComponent.vue -->
+<ChildComponent>
+  <template v-slot:header>
+    <h1>Header Content</h1>
+  </template>
+  <template v-slot:footer>
+    <p>Footer Content</p>
+  </template>
+</ChildComponent>
+```
+```vue
+<!-- ChildComponent.vue -->
+<template>
+  <div>
+    <slot name="header"></slot>
+    <p>Main content of child component</p>
+    <slot name="footer"></slot>
+  </div>
+</template>
+```
+
+---
+
+### **Parent-Child Communication**
+Vue supports **parent-child communication** through:
+1. **Props** – From **parent to child**.
+2. **Events (`$emit`)** – From **child to parent**.
+
+---
+
+#### **1. Passing Data from Parent to Child (via Props)**
+As shown earlier, props are used for **parent-to-child** data communication.
+
+---
+
+#### **2. Emitting Events from Child to Parent (`$emit`)**
+If a child needs to **send data to the parent**, it uses `$emit()`.
+
+##### **Example: Child Component Sending Data**
+```vue
+<!-- ChildComponent.vue -->
+<template>
+  <button @click="sendMessage">Send Message</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    sendMessage() {
+      this.$emit("messageEvent", "Hello from Child!");
+    },
+  },
+};
+</script>
+```
+
+##### **Example: Parent Component Handling Event**
+```vue
+<!-- ParentComponent.vue -->
+<template>
+  <ChildComponent @messageEvent="handleMessage" />
+  <p>{{ receivedMessage }}</p>
+</template>
+
+<script>
+import ChildComponent from "./ChildComponent.vue";
+
+export default {
+  components: { ChildComponent },
+  data() {
+    return {
+      receivedMessage: "",
+    };
+  },
+  methods: {
+    handleMessage(msg) {
+      this.receivedMessage = msg;
+    },
+  },
+};
+</script>
+```
+📌 The **child emits an event**, and the **parent listens** for it using `@messageEvent="handleMessage"`.
+
+---
+
+### **Conclusion**
+Vue components allow **modular development** by breaking down the UI into reusable elements. Understanding **props, slots, dynamic components, and event communication** is key to building scalable Vue applications. 🚀
+
+---
+## **6. Computed Properties & Watchers**
+
+Vue.js provides **computed properties** and **watchers** to handle reactive data efficiently. These tools help optimize performance by avoiding unnecessary function calls and allowing **reactive updates** based on data changes.
+
+---
+
+### **Introduction to Computed Properties**
+Computed properties are **cached** values that update only when their dependencies change. Unlike methods, computed properties do **not re-run** every time the template re-renders.
+
+#### **Key Features of Computed Properties:**
+✅ **Efficient**: They are **cached** and recomputed only when their dependencies change.  
+✅ **Declarative**: Allows defining **derived state** based on existing data.  
+✅ **Readability**: Helps keep templates **clean and maintainable**.
+
+---
+
+#### **Example: Using Computed Properties**
+```vue
+<template>
+  <p>Original Message: {{ message }}</p>
+  <p>Reversed Message: {{ reversedMessage }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
+  computed: {
+    reversedMessage() {
+      return this.message.split("").reverse().join("");
+    },
+  },
+};
+</script>
+```
+📌 Here, `reversedMessage` is a computed property that depends on `message`.  
+💡 **Advantage over Methods**: Unlike a method, `reversedMessage` is **only recomputed when `message` changes**.
+
+---
+
+### **Getters and Setters in Computed Properties**
+Computed properties can have **getters and setters**, allowing **custom logic** when accessing or updating a value.
+
+#### **Example: Computed Getters and Setters**
+```vue
+<template>
+  <p>Full Name: {{ fullName }}</p>
+  <input v-model="fullName" placeholder="Enter full name" />
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      firstName: "John",
+      lastName: "Doe",
+    };
+  },
+  computed: {
+    fullName: {
+      get() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      set(newValue) {
+        const names = newValue.split(" ");
+        this.firstName = names[0];
+        this.lastName = names[1] || "";
+      },
+    },
+  },
+};
+</script>
+```
+📌 **How it works:**
+- **Getter (`get`)**: Combines `firstName` and `lastName` into `fullName`.
+- **Setter (`set`)**: Splits `fullName` into `firstName` and `lastName` when modified.
+
+💡 This is useful for **form handling** where you need **bi-directional data binding**.
+
+---
+
+### **The Watch Property for Reactive Changes**
+Watchers in Vue **observe changes** in data and execute logic when a value changes.
+
+#### **Key Features of Watchers**
+✅ Useful for **asynchronous operations** (e.g., API calls).  
+✅ Runs **custom logic** when a reactive property changes.  
+✅ Ideal for **triggering side effects** when data changes.
+
+---
+
+#### **Example: Using a Watcher**
+```vue
+<template>
+  <p>Number: {{ number }}</p>
+  <button @click="number++">Increase</button>
+  <p>{{ status }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      number: 0,
+      status: "Waiting...",
+    };
+  },
+  watch: {
+    number(newVal, oldVal) {
+      if (newVal > 5) {
+        this.status = "Number is greater than 5!";
+      } else {
+        this.status = "Waiting...";
+      }
+    },
+  },
+};
+</script>
+```
+📌 **How it works:**
+- The `watch` property **tracks changes** in `number`.
+- When `number` exceeds **5**, `status` updates accordingly.
+
+💡 **When to use Watchers?**
+- **Watching API responses** (e.g., fetching data when a search query changes).
+- **Triggering expensive computations** when a value changes.
+- **Observing multiple dependencies** dynamically.
+
+---
+
+#### **Deep Watching**
+By default, Vue watchers do **not track nested objects**. You can use `{ deep: true }` to watch deep objects.
+
+```vue
+watch: {
+  user: {
+    handler(newValue) {
+      console.log("User data changed:", newValue);
+    },
+    deep: true,
+  },
+}
+```
+
+---
+
+### **Computed Properties vs. Watchers**
+| Feature | Computed Properties | Watchers |
+|---------|---------------------|----------|
+| **Best for** | **Derived state** based on existing data | **Performing actions** when data changes |
+| **Performance** | **Cached**, only recalculates when dependencies change | Runs every time the watched property changes |
+| **Use Case** | Formatting data, filtering, transformations | Fetching API data, logging changes, executing logic on change |
+
+---
+
+### **Conclusion**
+- **Computed properties** allow efficient state derivation and **auto-update only when needed**.
+- **Getters and setters** provide advanced data manipulation in computed properties.
+- **Watchers** help trigger **side effects** like API calls, making Vue highly reactive.
+
+Mastering these features will help in building **high-performance** Vue.js applications! 🚀
+
+---
+
+
+## **7. Data Binding in Vue.js**
+
+Vue.js provides **data binding** mechanisms that allow you to connect **HTML elements with JavaScript data**, making applications **dynamic and reactive**. There are two main types of data binding: **one-way** and **two-way**.
+
+---
+
+### **One-Way vs. Two-Way Data Binding**
+Data binding determines how **data flows** between the component and the DOM.
+
+| Type | Description | Example |
+|------|------------|---------|
+| **One-Way Binding** | Data flows **from the component to the DOM**. Changes in the DOM do not affect the data in the component. | `v-bind` |
+| **Two-Way Binding** | Data flows **both ways** between the component and the DOM. Changes in the input field update the Vue data, and vice versa. | `v-model` |
+
+---
+
+#### **Example: One-Way Binding (`v-bind`)**
+One-way binding is useful when displaying **read-only** or **dynamic values** in the template.
+
+```vue
+<template>
+  <p>Message: {{ message }}</p>
+  <input :value="message" />
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
+};
+</script>
+```
+📌 **Changing the input field will NOT update `message`** because the data is bound in **one direction**.
+
+---
+
+#### **Example: Two-Way Binding (`v-model`)**
+Two-way binding is **useful for forms and user inputs**.
+
+```vue
+<template>
+  <input v-model="message" />
+  <p>Typed: {{ message }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
+};
+</script>
+```
+📌 **Changing the input field WILL update `message`** because the data is bound in **both directions**.
+
+---
+
+### **Binding HTML Classes & Styles**
+Vue allows **binding CSS classes and inline styles** dynamically.
+
+#### **Binding CSS Classes**
+We can bind CSS classes dynamically using `v-bind:class` (or simply `:class`).
+
+##### **Example: Dynamic Class Binding**
+```vue
+<template>
+  <p :class="{ active: isActive, disabled: !isActive }">Dynamic Class</p>
+  <button @click="isActive = !isActive">Toggle Class</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isActive: true,
+    };
+  },
+};
+</script>
+
+<style>
+.active {
+  color: green;
+}
+.disabled {
+  color: red;
+}
+</style>
+```
+📌 The class **toggles between "active" and "disabled"** when clicking the button.
+
+---
+
+#### **Binding Inline Styles**
+We can bind styles dynamically using `v-bind:style` (or `:style`).
+
+##### **Example: Dynamic Style Binding**
+```vue
+<template>
+  <p :style="{ color: textColor, fontSize: fontSize + 'px' }">Styled Text</p>
+  <button @click="textColor = 'blue'">Change Color</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      textColor: "red",
+      fontSize: 20,
+    };
+  },
+};
+</script>
+```
+📌 Clicking the button changes the text color dynamically.
+
+---
+
+### **Handling Forms with `v-model`**
+Vue provides `v-model` for **seamless form handling**. It supports different input types such as:
+- **Text fields**
+- **Checkboxes**
+- **Radio buttons**
+- **Dropdowns (Select)**
+
+---
+
+#### **1. Text Input Binding**
+```vue
+<template>
+  <input v-model="name" placeholder="Enter your name" />
+  <p>Hello, {{ name }}!</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+    };
+  },
+};
+</script>
+```
+📌 Typing in the input field updates `name` in real time.
+
+---
+
+#### **2. Checkbox Binding**
+```vue
+<template>
+  <input type="checkbox" v-model="isChecked" />
+  <p>Checkbox is: {{ isChecked ? "Checked" : "Unchecked" }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isChecked: false,
+    };
+  },
+};
+</script>
+```
+📌 The checkbox state (`true/false`) is **synced** with `isChecked`.
+
+---
+
+#### **3. Radio Button Binding**
+```vue
+<template>
+  <label><input type="radio" v-model="gender" value="Male" /> Male</label>
+  <label><input type="radio" v-model="gender" value="Female" /> Female</label>
+  <p>Selected: {{ gender }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      gender: "",
+    };
+  },
+};
+</script>
+```
+📌 **Only one radio button can be selected** at a time.
+
+---
+
+#### **4. Dropdown (Select) Binding**
+```vue
+<template>
+  <select v-model="selectedFruit">
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+    <option value="Orange">Orange</option>
+  </select>
+  <p>Selected: {{ selectedFruit }}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selectedFruit: "",
+    };
+  },
+};
+</script>
+```
+📌 **Selecting an option updates `selectedFruit` dynamically**.
+
+---
+
+### **Conclusion**
+- **One-way binding (`v-bind`)** is used for **static** or **computed data**.
+- **Two-way binding (`v-model`)** is best for **forms and user inputs**.
+- **Class and style binding** allows for **dynamic UI updates**.
+- Vue’s **reactive data binding** makes it easy to build **interactive applications**.
+
+Master these concepts to enhance your Vue development skills! 🚀
+
+---
+## **8. Vue Directives**
+
+Vue **directives** are special **prefixes with `v-`** that apply **reactivity and behavior** to HTML elements. They are an essential part of Vue.js and help in **managing DOM updates efficiently**.
+
+---
+
+### **1. Conditional Rendering (`v-if`, `v-else`, `v-show`)**
+Conditional rendering allows elements to be **displayed or removed** from the DOM based on conditions.
+
+#### **`v-if` & `v-else` (Full DOM Removal)**
+`v-if` **adds or removes** elements from the DOM **based on a condition**.
+
+##### **Example: Using `v-if` and `v-else`**
+```vue
+<template>
+  <p v-if="isLoggedIn">Welcome, User!</p>
+  <p v-else>Please log in.</p>
+  <button @click="isLoggedIn = !isLoggedIn">Toggle Login</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isLoggedIn: false,
+    };
+  },
+};
+</script>
+```
+📌 `v-if` **completely removes** the element from the DOM when `false`.
+
+---
+
+#### **`v-show` (CSS-Based Visibility)**
+Unlike `v-if`, `v-show` **hides** elements using **CSS (`display: none;`)** instead of removing them from the DOM.
+
+##### **Example: Using `v-show`**
+```vue
+<template>
+  <p v-show="isVisible">This text is always in the DOM but may be hidden.</p>
+  <button @click="isVisible = !isVisible">Toggle Visibility</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isVisible: true,
+    };
+  },
+};
+</script>
+```
+📌 `v-show` is useful when **frequent toggling** is needed.
+
+---
+
+#### **Comparison: `v-if` vs `v-show`**
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th><code>v-if</code></th>
+      <th><code>v-show</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Behavior</strong></td>
+      <td>Adds/removes from the DOM</td>
+      <td>Hides using CSS (<code>display: none;</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>Performance</strong></td>
+      <td><strong>Better for rarely changed elements</strong></td>
+      <td><strong>Better for frequently toggled elements</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Initial Rendering</strong></td>
+      <td>Higher cost</td>
+      <td>Lower cost</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ <strong>Use <code>v-if</code> for rarely toggled elements</strong> (better performance).</p>
+<p>✅ <strong>Use <code>v-show</code> for frequently toggled elements</strong> (avoids expensive DOM re-renders).</p>
+
+
+---
+
+### **2. List Rendering (`v-for`)**
+`v-for` is used to **dynamically render lists** based on an array.
+
+#### **Example: Looping Through an Array**
+```vue
+<template>
+  <ul>
+    <li v-for="(item, index) in items" :key="index">
+      {{ index + 1 }}. {{ item }}
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      items: ["Vue", "React", "Angular"],
+    };
+  },
+};
+</script>
+```
+📌 **Always use `:key`** for better performance and to help Vue track elements efficiently.
+
+---
+
+#### **Looping Over Objects**
+```vue
+<template>
+  <ul>
+    <li v-for="(value, key) in user" :key="key">
+      \{\{ key \}\}: \{\{ value \}\}
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      user: { name: "John", age: 30, country: "USA" },
+    };
+  },
+};
+</script>
+```
+📌 Vue provides **value, key, and index** when looping through objects.
+
+---
+
+#### **Looping a Set Number of Times**
+You can use `v-for` to repeat an element a set number of times.
+```vue
+<template>
+  <p v-for="n in 5" :key="n">This is item \{\{ n \}\}</p>
+</template>
+```
+📌 Loops **from `1` to `5`** dynamically.
+
+---
+
+### **3. Event Handling (`v-on`)**
+Vue uses `v-on` to **listen for DOM events** and execute functions.
+
+#### **Example: Handling Click Events**
+```vue
+<template>
+  <button v-on:click="greet">Click Me</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    greet() {
+      alert("Hello from Vue!");
+    },
+  },
+};
+</script>
+```
+📌 **Shortcut**:  
+`v-on` can be shortened to `@`:  
+```vue
+<button @click="greet">Click Me</button>
+```
+
+---
+
+#### **Passing Event Data**
+```vue
+<template>
+  <button @click="sayHello('Vue')">Say Hello</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    sayHello(name) {
+      alert(`Hello, ${name}!`);
+    },
+  },
+};
+</script>
+```
+
+📌 **Using `$event` to Access Event Object**
+```vue
+<template>
+  <input @keyup="handleKey($event)" />
+</template>
+
+<script>
+export default {
+  methods: {
+    handleKey(event) {
+      console.log("Key Pressed:", event.key);
+    },
+  },
+};
+</script>
+```
+
+📌 **Event Modifiers (`@click.prevent`, `@keyup.enter`)**
+```vue
+<button @click.prevent="submitForm">Submit</button> <!-- Prevent default action -->
+<input @keyup.enter="submitForm" /> <!-- Only triggers on Enter key -->
+```
+
+---
+
+### **4. Two-Way Binding (`v-model`)**
+`v-model` creates a **two-way binding** between input fields and data.
+
+#### **Example: Text Input Binding**
+```vue
+<template>
+  <input v-model="message" placeholder="Type something" />
+  <p>You typed: \{\{ message \}\}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: "",
+    };
+  },
+};
+</script>
+```
+📌 The input field is **synchronized** with `message`.
+
+---
+
+#### **Handling Checkboxes**
+```vue
+<template>
+  <input type="checkbox" v-model="isChecked" />
+  <p>Checkbox is: \{\{ isChecked ? "Checked" : "Unchecked" \}\}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isChecked: false,
+    };
+  },
+};
+</script>
+```
+
+---
+
+#### **Handling Radio Buttons**
+```vue
+<template>
+  <label><input type="radio" v-model="gender" value="Male" /> Male</label>
+  <label><input type="radio" v-model="gender" value="Female" /> Female</label>
+  <p>Selected: \{\{ gender \}\}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      gender: "",
+    };
+  },
+};
+</script>
+```
+
+---
+
+#### **Handling Select Dropdowns**
+```vue
+<template>
+  <select v-model="selectedFruit">
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+    <option value="Orange">Orange</option>
+  </select>
+  <p>Selected: \{\{ selectedFruit \}\}</p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selectedFruit: "",
+    };
+  },
+};
+</script>
+```
+
+---
+
+### **Conclusion**
+- **Conditional Rendering**: `v-if` removes elements from the DOM, while `v-show` hides them.
+- **List Rendering**: `v-for` dynamically creates lists.
+- **Event Handling**: `v-on` (`@`) listens for events.
+- **Two-Way Binding**: `v-model` keeps inputs and data in sync.
+
+Mastering **Vue directives** will make your applications more **reactive and dynamic**! 🚀
+
+---
+
+## **9. Vue Router: Navigation & Routing**
+
+Vue Router is the **official routing library** for Vue.js, enabling **single-page applications (SPAs)** to navigate between different views **without reloading the page**.
+
+---
+
+### **1. Setting Up Vue Router**
+To use Vue Router in a Vue 3 project, follow these steps:
+
+#### **Step 1: Install Vue Router**
+Run the following command in your project:
+```sh
+npm install vue-router@4
+```
+📌 Vue Router 4 is compatible with Vue 3.
+
+---
+
+#### **Step 2: Create the Router Configuration**
+Inside the `src` folder, create a new file: **`src/router/index.js`**.
+
+```js
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import About from "../views/About.vue";
+
+const routes = [
+  { path: "/", component: Home },
+  { path: "/about", component: About },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
+```
+📌 This defines two routes:
+- `/` → Loads **Home.vue**
+- `/about` → Loads **About.vue**
+
+---
+
+#### **Step 3: Register the Router in `main.js`**
+Modify **`src/main.js`** to use the router.
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router"; // Import router
+
+const app = createApp(App);
+app.use(router);
+app.mount("#app");
+```
+
+---
+
+#### **Step 4: Add Router View in `App.vue`**
+Replace the contents of **`src/App.vue`** with:
+
+```vue
+<template>
+  <nav>
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
+  </nav>
+
+  <router-view></router-view>
+</template>
+
+<style>
+nav {
+  display: flex;
+  gap: 15px;
+}
+</style>
+```
+📌 **`<router-link>`** → Creates navigational links.  
+📌 **`<router-view>`** → Displays the active page.
+
+✅ Now, Vue Router is **fully set up!** 🎉
+
+---
+
+### **2. Defining Routes and Route Parameters**
+Routes can have **dynamic parameters** that help in building **dynamic pages**.
+
+#### **Dynamic Route Parameters**
+```js
+const routes = [
+  { path: "/user/:id", component: UserProfile },
+];
+```
+📌 **`:id`** is a **dynamic route parameter**.
+
+---
+
+#### **Accessing Route Parameters in a Component**
+```vue
+<template>
+  <h2>User ID: \{\{ userId \}\}</h2>
+</template>
+
+<script>
+import { useRoute } from "vue-router";
+
+export default {
+  setup() {
+    const route = useRoute();
+    return {
+      userId: route.params.id,
+    };
+  },
+};
+</script>
+```
+📌 The `useRoute()` function gives access to the **route parameters**.
+
+---
+
+#### **Programmatic Navigation**
+You can navigate to a new route dynamically using **`$router.push()`**.
+
+##### **Example: Redirecting Users**
+```vue
+<template>
+  <button @click="goToProfile">Go to Profile</button>
+</template>
+
+<script>
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const router = useRouter();
+
+    function goToProfile() {
+      router.push("/user/123");
+    }
+
+    return { goToProfile };
+  },
+};
+</script>
+```
+📌 Clicking the button **navigates to `/user/123`**.
+
+---
+
+### **3. Navigation Guards**
+Navigation Guards allow you to **control access** to specific routes.
+
+#### **Types of Navigation Guards**
+| Guard | Description |
+|-------|------------|
+| `beforeEach` | Runs **before every navigation**. |
+| `beforeResolve` | Runs **before resolving navigation**. |
+| `afterEach` | Runs **after navigation completes**. |
+
+---
+
+#### **Example: Protecting Routes**
+Modify `router/index.js`:
+```js
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = false; // Change this based on auth state
+
+  if (to.path === "/dashboard" && !isAuthenticated) {
+    next("/login"); // Redirect to login if not authenticated
+  } else {
+    next(); // Continue to the requested page
+  }
+});
+```
+📌 If a user tries to access `/dashboard` **without authentication**, they are redirected to `/login`.
+
+---
+
+#### **Guarding a Specific Route in `beforeEnter`**
+```js
+const routes = [
+  {
+    path: "/admin",
+    component: AdminPage,
+    beforeEnter: (to, from, next) => {
+      if (!isAdmin) next("/"); // Redirect non-admin users
+      else next();
+    },
+  },
+];
+```
+📌 This **guards only the `/admin` page**.
+
+---
+
+### **Conclusion**
+- Vue Router **enables SPAs** by managing navigation **without page reloads**.
+- Use **dynamic route parameters (`:id`)** for dynamic pages.
+- **Navigation Guards (`beforeEach`)** help in **authentication and access control**.
+
+By mastering Vue Router, you can build **powerful, scalable applications**! 🚀
+
+---
+## **10. State Management in Vue.js**
+
+Vue.js provides **state management solutions** to handle shared data efficiently across components. The most common state management tool in Vue is **Vuex**, but Vue 3 also introduced **Pinia** as a modern alternative.
+
+---
+
+### **1. Introduction to Vuex**
+Vuex is a **centralized state management** library for Vue applications. It follows the **Flux architecture**, ensuring that state updates are **predictable and trackable**.
+
+#### **Why Use Vuex?**
+✅ **Centralized State** – Stores application-wide data in a single place.  
+✅ **Predictable Mutations** – Ensures that state changes are **explicit** and **traceable**.  
+✅ **Component Communication** – Allows **cross-component** data sharing without prop drilling.  
+✅ **DevTools Support** – Integrates with Vue DevTools for state debugging.
+
+---
+
+### **2. Managing State with Vuex**
+#### **Step 1: Install Vuex**
+Run the following command in your Vue 3 project:
+```sh
+npm install vuex@next
+```
+📌 **`@next` ensures compatibility with Vue 3**.
+
+---
+
+#### **Step 2: Create a Vuex Store**
+Inside your `src` folder, create a new file: **`src/store/index.js`**.
+
+```js
+import { createStore } from "vuex";
+
+const store = createStore({
+  state: {
+    count: 0, // Centralized state variable
+  },
+  mutations: {
+    increment(state) {
+      state.count++;
+    },
+    decrement(state) {
+      state.count--;
+    },
+  },
+  actions: {
+    asyncIncrement({ commit }) {
+      setTimeout(() => {
+        commit("increment");
+      }, 1000);
+    },
+  },
+  getters: {
+    doubleCount(state) {
+      return state.count * 2;
+    },
+  },
+});
+
+export default store;
+```
+📌 **Breakdown of Vuex Store:**
+- **`state`** → Stores the application's global state.
+- **`mutations`** → Functions that directly modify state.
+- **`actions`** → Asynchronous operations that commit mutations.
+- **`getters`** → Computed properties for the state.
+
+---
+
+#### **Step 3: Register Vuex in `main.js`**
+Modify **`src/main.js`** to use Vuex.
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import store from "./store"; // Import Vuex store
+
+const app = createApp(App);
+app.use(store);
+app.mount("#app");
+```
+
+---
+
+### **3. Mutations, Actions, and Getters**
+#### **Mutations (Synchronous State Changes)**
+Mutations **directly modify** the Vuex state.
+
+##### **Example: Committing a Mutation**
+```vue
+<template>
+  <p>Count: \{\{ $store.state.count \}\}</p>
+  <button @click="$store.commit('increment')">Increment</button>
+  <button @click="$store.commit('decrement')">Decrement</button>
+</template>
+```
+📌 **Commiting a Mutation** → `$store.commit('mutationName')`.
+
+---
+
+#### **Actions (Asynchronous Operations)**
+Actions are **used for API calls or delayed state changes**.
+
+##### **Example: Dispatching an Action**
+```vue
+<template>
+  <button @click="$store.dispatch('asyncIncrement')">Async Increment</button>
+</template>
+```
+📌 **Dispatching an Action** → `$store.dispatch('actionName')`.
+
+---
+
+#### **Getters (Computed State)**
+Getters **compute derived state** based on existing state.
+
+##### **Example: Using a Getter**
+```vue
+<template>
+  <p>Double Count: \{\{ $store.getters.doubleCount \}\}</p>
+</template>
+```
+📌 **Accessing a Getter** → `$store.getters.getterName`.
+
+
+
+---
+
+### **Conclusion**
+- **Vuex centralizes state** and makes it accessible to all components.
+- **Mutations** modify state **synchronously**.
+- **Actions** handle **asynchronous operations** before committing mutations.
+- **Getters** compute **derived state**.
+
+By mastering Vuex, you can **manage complex application states efficiently**! 🚀
+
+---
+## **11. Vue.js and API Communication**
+
+Vue.js allows easy **API communication** using libraries like **Axios**. Fetching data from APIs, handling responses, and managing errors are essential for building dynamic applications.
+
+---
+
+### **1. Fetching Data using Axios**
+Axios is a popular **HTTP client** for making API requests in Vue.js applications.
+
+#### **Step 1: Install Axios**
+Run the following command in your Vue project:
+```sh
+npm install axios
+```
+
+---
+
+#### **Step 2: Making a GET Request**
+Create a component that **fetches data from an API** using Axios.
+
+##### **Example: Fetching Data from an API**
+```vue
+<template>
+  <div>
+    <h2>Users List</h2>
+    <ul>
+      <li v-for="user in users" :key="user.id">\{\{ user.name \}\}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      users: [],
+    };
+  },
+  async created() {
+    try {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+      this.users = response.data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  },
+};
+</script>
+```
+📌 **How it works:**
+- **Axios fetches data** inside the `created()` lifecycle hook.
+- **Data is stored** in the `users` array.
+- **`v-for` renders the fetched users** dynamically.
+
+---
+
+### **2. Handling API Calls and Responses**
+#### **Making a POST Request**
+To send data to an API, use **POST requests**.
+
+##### **Example: Sending Data**
+```vue
+<template>
+  <div>
+    <input v-model="newUser" placeholder="Enter name" />
+    <button @click="addUser">Add User</button>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      newUser: "",
+    };
+  },
+  methods: {
+    async addUser() {
+      try {
+        const response = await axios.post("https://jsonplaceholder.typicode.com/users", {
+          name: this.newUser,
+        });
+        console.log("User added:", response.data);
+      } catch (error) {
+        console.error("Error adding user:", error);
+      }
+    },
+  },
+};
+</script>
+```
+📌 The **POST request** sends `newUser` to the API.
+
+---
+
+### **3. Managing Loading States and Errors**
+APIs can take time to respond, so we need **loading indicators** and **error handling**.
+
+##### **Example: Displaying Loading and Error Messages**
+```vue
+<template>
+  <div>
+    <h2>Users List</h2>
+    <p v-if="loading">Loading...</p>
+    <p v-if="error">\{\{ error \}\}</p>
+    <ul v-if="!loading && !error">
+      <li v-for="user in users" :key="user.id">\{\{ user.name \}\}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      users: [],
+      loading: true,
+      error: "",
+    };
+  },
+  async created() {
+    try {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+      this.users = response.data;
+    } catch (err) {
+      this.error = "Failed to load data.";
+    } finally {
+      this.loading = false;
+    }
+  },
+};
+</script>
+```
+📌 **Loading (`loading` state)** shows a message while data is being fetched.  
+📌 **Error handling (`error` state)** displays an error message if the API fails.
+
+---
+
+### **Conclusion**
+- **Axios simplifies API communication** in Vue.js.
+- **GET and POST requests** are commonly used for fetching and sending data.
+- **Loading and error states** improve the user experience.
+
+By mastering API communication, you can **build powerful, real-world Vue applications**! 🚀
+
+---
+## **12. Deploying a Vue App**
+
+Once your Vue.js application is complete, the final step is **deploying it for public access**. Vue apps can be deployed on platforms like **Netlify, Vercel, and GitHub Pages** with ease.
+
+---
+
+### **1. Building for Production**
+Before deploying, you need to **build** your Vue project into optimized static files.
+
+#### **Step 1: Run the Build Command**
+```sh
+npm run build
+```
+This command generates an optimized **`dist/` folder** containing:
+- Minified **JavaScript and CSS** files.
+- Optimized **static assets**.
+- Pre-rendered **HTML files**.
+
+---
+
+### **Step 2: Preview the Build Locally (Optional)**
+You can preview your build **before deploying** using:
+
+```sh
+npm install -g serve
+serve -s dist
+```
+📌 Opens a **local server** for testing your production build.
+
+---
+
+### **2. Deploying to Netlify**
+#### **Step 1: Install Netlify CLI (Optional)**
+If you want to deploy directly from your terminal, install Netlify CLI:
+```sh
+npm install -g netlify-cli
+```
+
+#### **Step 2: Deploy Using Netlify Web Interface**
+1. Go to [Netlify](https://www.netlify.com/).
+2. Click **"New site from Git"**.
+3. Connect your **GitHub/Bitbucket/GitLab** repository.
+4. Select the repository containing your Vue project.
+5. In **Build Settings**, set:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+6. Click **"Deploy Site"** 🚀
+
+#### **Step 3: Deploy Using Netlify CLI (Optional)**
+```sh
+netlify deploy --prod
+```
+📌 Deploys the `dist/` folder **directly from your terminal**.
+
+---
+
+### **3. Deploying to Vercel**
+Vercel is another great hosting platform for Vue apps.
+
+#### **Step 1: Install Vercel CLI**
+```sh
+npm install -g vercel
+```
+
+#### **Step 2: Deploy Your App**
+Run the following command inside your Vue project:
+```sh
+vercel
+```
+📌 Follow the prompts to **set up deployment**.
+
+#### **Step 3: Configure the Build Settings**
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+
+📌 After deployment, Vercel provides a **live URL** for your project.
+
+---
+
+### **4. Deploying to GitHub Pages**
+#### **Step 1: Install GitHub Pages Package**
+```sh
+npm install gh-pages --save-dev
+```
+
+#### **Step 2: Update `vite.config.js`**
+Modify your `vite.config.js` to set the **base path**:
+```js
+export default defineConfig({
+  base: "/your-repo-name/",
+  plugins: [vue()],
+});
+```
+
+#### **Step 3: Add Deployment Script**
+Edit **`package.json`**:
+```json
+"scripts": {
+  "build": "vite build",
+  "deploy": "gh-pages -d dist"
+}
+```
+
+#### **Step 4: Build & Deploy**
+Run:
+```sh
+npm run build
+npm run deploy
+```
+📌 Your app will be **live on GitHub Pages** at:
+```
+https://your-username.github.io/your-repo-name/
+```
+
+---
+
+### **Conclusion**
+- **Netlify & Vercel** are **great for automatic deployments** with Git.
+- **GitHub Pages** is a good option for hosting static Vue apps.
+
+With these deployment methods, your Vue app will be **live and accessible** to users worldwide! 🚀
+
+---
