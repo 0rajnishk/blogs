@@ -5,7 +5,7 @@ categories: [Development ]
 tags: [vue]
 ---
 
-### **Preface**  
+<!-- ### **Preface**   -->
 
 Welcome to this **Flask Backend Development Tutorial**, where we will build a robust, scalable, and production-ready backend using Flask, SQLite for database management, JWT for authentication, Redis for caching, Celery for background tasks, and SMTP for email functionality.  
 
@@ -42,8 +42,8 @@ Before diving into this tutorial, ensure you have the following:
 🔹 SQLite installed (comes with Python by default)  
 🔹 Redis installed and running  
 🔹 SMTP credentials for email testing (Gmail, SendGrid, etc.)  
-<!-- 
-#### **3. Required Python Libraries**  
+
+<!--  #### **3. Required Python Libraries**  
 Before starting, install the following packages:  
 ```bash
 pip install flask flask-jwt-extended flask-sqlalchemy flask-migrate redis celery flask-mail
@@ -61,10 +61,10 @@ With these prerequisites in place, you're all set to begin your **Flask Backend 
 ## 📚 Table of Contents
 
 ### **1️⃣ Introduction to Flask Backend Development**
-- [What is Flask?](#what-is-flask)
-- [Why Choose Flask for Backend Development?](#why-choose-flask-for-backend-development)
-- [Core Components of a Backend System](#core-components-of-a-backend-system)
-- [Overview of Technologies Used](#overview-of-technologies-used)
+- [What is Flask?](#-what-is-flask)
+- [Why Choose Flask for Backend Development?](#-why-choose-flask-for-backend-development)
+- [Core Components of a Backend System](#-core-components-of-a-backend-system)
+- [Overview of Technologies Used](#-overview-of-technologies-used)
 
 ### **2️⃣ Setting Up the Development Environment**
 - [Installing Python and Flask](#installing-python-and-flask)
@@ -1896,31 +1896,131 @@ Each task contains an **ID, title, description, status (pending/in-progress/comp
 ### **📌 Building RESTful API Endpoints** {#building-restful-api-endpoints}
 
 The API follows **RESTful principles**, using **Flask-RESTful** for structured request handling.
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">🔹 Authentication Endpoints</th>
+    </tr>
+    <tr>
+      <th>Endpoint</th>
+      <th>Method</th>
+      <th>Access</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/login</code></td>
+      <td>POST</td>
+      <td>Public</td>
+      <td>Authenticate users and generate JWT tokens</td>
+    </tr>
+    <tr>
+      <td><code>/register</code></td>
+      <td>POST</td>
+      <td>Public</td>
+      <td>Allow new users to register</td>
+    </tr>
+    <tr>
+      <td><code>/users/pending</code></td>
+      <td>GET</td>
+      <td>Admin</td>
+      <td>List all pending user approvals</td>
+    </tr>
+    <tr>
+      <td><code>/users/&lt;id&gt;/approve</code></td>
+      <td>PUT</td>
+      <td>Admin</td>
+      <td>Approve a user</td>
+    </tr>
+    <tr>
+      <td><code>/users/&lt;id&gt;/reject</code></td>
+      <td>DELETE</td>
+      <td>Admin</td>
+      <td>Reject a user</td>
+    </tr>
+  </tbody>
+</table>
 
-### **🔹 Authentication Endpoints**
-| **Endpoint** | **Method** | **Access** | **Description** |
-|-------------|-----------|------------|----------------|
-| `/login` | POST | Public | Authenticate users and generate JWT tokens |
-| `/register` | POST | Public | Allow new users to register |
-| `/users/pending` | GET | Admin | List all pending user approvals |
-| `/users/<id>/approve` | PUT | Admin | Approve a user |
-| `/users/<id>/reject` | DELETE | Admin | Reject a user |
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">🔹 Task Management Endpoints</th>
+    </tr>
+    <tr>
+      <th>Endpoint</th>
+      <th>Method</th>
+      <th>Access</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/tasks</code></td>
+      <td>GET</td>
+      <td>Admin</td>
+      <td>Retrieve all tasks</td>
+    </tr>
+    <tr>
+      <td><code>/tasks/mine</code></td>
+      <td>GET</td>
+      <td>Employee</td>
+      <td>Fetch assigned tasks for the logged-in employee</td>
+    </tr>
+    <tr>
+      <td><code>/task/&lt;id&gt;</code></td>
+      <td>GET</td>
+      <td>Assigned User, Manager, Admin</td>
+      <td>Get task details</td>
+    </tr>
+    <tr>
+      <td><code>/tasks</code></td>
+      <td>POST</td>
+      <td>Manager, Admin</td>
+      <td>Create a new task</td>
+    </tr>
+    <tr>
+      <td><code>/task/&lt;id&gt;</code></td>
+      <td>PUT</td>
+      <td>Manager, Admin</td>
+      <td>Update task details</td>
+    </tr>
+    <tr>
+      <td><code>/task/&lt;id&gt;/status</code></td>
+      <td>PUT</td>
+      <td>Employee, Manager, Admin</td>
+      <td>Update task status</td>
+    </tr>
+    <tr>
+      <td><code>/task/&lt;id&gt;/assign</code></td>
+      <td>PUT</td>
+      <td>Manager</td>
+      <td>Assign a task to an employee</td>
+    </tr>
+  </tbody>
+</table>
 
-### **🔹 Task Management Endpoints**
-| **Endpoint** | **Method** | **Access** | **Description** |
-|-------------|-----------|------------|----------------|
-| `/tasks` | GET | Admin | Retrieve all tasks |
-| `/tasks/mine` | GET | Employee | Fetch assigned tasks for the logged-in employee |
-| `/task/<id>` | GET | Assigned User, Manager, Admin | Get task details |
-| `/tasks` | POST | Manager, Admin | Create a new task |
-| `/task/<id>` | PUT | Manager, Admin | Update task details |
-| `/task/<id>/status` | PUT | Employee, Manager, Admin | Update task status |
-| `/task/<id>/assign` | PUT | Manager | Assign a task to an employee |
-
-### **🔹 Reports & Statistics**
-| **Endpoint** | **Method** | **Access** | **Description** |
-|-------------|-----------|------------|----------------|
-| `/stats` | GET | Admin, Manager | Get system-wide statistics |
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">🔹 Reports &amp; Statistics</th>
+    </tr>
+    <tr>
+      <th>Endpoint</th>
+      <th>Method</th>
+      <th>Access</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/stats</code></td>
+      <td>GET</td>
+      <td>Admin, Manager</td>
+      <td>Get system-wide statistics</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -1956,14 +2056,40 @@ The API follows **RESTful principles**, using **Flask-RESTful** for structured r
 
 ### **📌 Deploying the Final Application** {#deploying-the-final-application}
 
-### **🔹 Deployment Stack**
-| **Technology** | **Purpose** |
-|--------------|------------|
-| **Gunicorn** | WSGI server for handling multiple requests |
-| **Nginx** | Reverse proxy to handle traffic efficiently |
-| **Docker** | Containerized deployment for consistency |
-| **Redis** | Caching system to optimize database performance |
-| **Celery** | Asynchronous task execution for background jobs |
+<table>
+  <thead>
+    <tr>
+      <th>🔹 Deployment Stack</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Technology</strong></td>
+      <td><strong>Purpose</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Gunicorn</strong></td>
+      <td>WSGI server for handling multiple requests</td>
+    </tr>
+    <tr>
+      <td><strong>Nginx</strong></td>
+      <td>Reverse proxy to handle traffic efficiently</td>
+    </tr>
+    <tr>
+      <td><strong>Docker</strong></td>
+      <td>Containerized deployment for consistency</td>
+    </tr>
+    <tr>
+      <td><strong>Redis</strong></td>
+      <td>Caching system to optimize database performance</td>
+    </tr>
+    <tr>
+      <td><strong>Celery</strong></td>
+      <td>Asynchronous task execution for background jobs</td>
+    </tr>
+  </tbody>
+</table>
 
 ### **🔹 Deployment Steps**
 1️⃣ **Run Flask with Gunicorn**
@@ -1971,7 +2097,9 @@ The API follows **RESTful principles**, using **Flask-RESTful** for structured r
 gunicorn -w 4 -b 0.0.0.0:5000 main:app
 ```
 2️⃣ **Set Up Nginx Reverse Proxy**
-```ini
+
+{% raw %}
+```bash
 server {
     listen 80;
     server_name your-domain.com;
@@ -1980,6 +2108,8 @@ server {
     }
 }
 ```
+{% endraw %}
+
 3️⃣ **Run the Application with Docker**
 ```bash
 docker build -t flask-task-app .
