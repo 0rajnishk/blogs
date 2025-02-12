@@ -1,7 +1,7 @@
 ---
-title: "Bootcamp: Application development II"
+title: "Bootcamp Tutorial 0: App Dev II setting up environment for Project"
 date: "2025-01-22 00:00:00"
-categories: [Development]
+categories: [bootcamp]
 tags: [bootcamp, vue, flask]
 ---
 
@@ -162,3 +162,8 @@ Commit your changes:
 git commit -m "Initial commit"
 git push
 ```
+
+
+## Next Tutorial
+
+[App Development II with SQLAlchemy, JWT, REST APIs, and CORS]({{ site.baseurl }}/posts/App-Dev-II-bootcamp-t1/)

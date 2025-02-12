@@ -8,7 +8,7 @@ tags: [vue]
 
 # Vue.js Tutorial 🚀
 
-Welcome to the **Vue.js Tutorial** using the **Chirpy theme** for Jekyll! This guide covers Vue.js step-by-step, starting from basics to advanced concepts. Click on any topic to jump to that section.
+Welcome to the **Vue.js Tutorial** This guide covers Vue.js step-by-step, starting from basics to advanced concepts. Click on any topic to jump to that section.
 
 ## 📚 Table of Contents
 
