@@ -6,8 +6,6 @@ tags: [bootcamp, vue, flask]
 ---
 
 
-Here’s a structured **Markdown file** for the tasks you want to implement using Flask, Celery, Redis, and SMTP. It includes the code you can follow, plus how to test it using Postman:
-
 ---
 
 # Flask, Celery, Redis, and SMTP Integration
