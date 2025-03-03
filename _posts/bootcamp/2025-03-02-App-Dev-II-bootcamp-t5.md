@@ -1,5 +1,5 @@
 ---
-title: "Bootcamp Tutorial 4: Flask, Celery, Redis, and SMTP Integration"  
+title: "Bootcamp Tutorial 5: Flask, Celery, Redis, and SMTP Integration"  
 date: "2025-03-02 00:00:00"
 categories: [bootcamp]
 tags: [bootcamp, vue, flask]
