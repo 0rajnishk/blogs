@@ -143,7 +143,7 @@ Create the backend directory and set up a Python virtual environment:
 ```bash
 mkdir backend
 cd backend
-python -m venv env
+python3 -m venv env
 ```
 
 
